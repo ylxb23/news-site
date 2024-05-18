@@ -1,0 +1,475 @@
+body {
+    margin: 0 !important;
+}
+#main {
+    width: 1200px;
+    margin: 0 auto;
+}
+ul {
+    margin: 0;
+}
+img {
+    object-fit: cover;
+}
+li {
+    list-style-type: none;
+}
+li a:hover {
+    color: #000;
+    font-weight: 700;
+}
+
+
+.header {
+    height: 140px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.head-inline {
+    height: 120px;
+    width: 1100px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.head-icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 120px;
+}
+.head-icon img {
+    padding-top: 10px;
+    height: 110px;
+}
+.split {
+    display: inline-block;
+    vertical-align: middle;
+    position: inherit;
+    margin-left: 37px;
+    height: 120px;
+    width: 1px;
+    background-color: #d6d6d6;
+}
+.head-title {
+    display: inline-block;
+    vertical-align: middle;
+    height: 120px;
+    width: 350px;
+}
+.head-title ul {
+    margin-top: 50px;
+    padding-left: 10px;
+}
+
+.head-title ul li {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 5px;
+}
+.h-main {
+    font-size:large;
+    color: #777;
+}
+.h-sub {
+    font-size: medium;
+    color: skyblue;
+
+}
+.head-search {
+    display: inline-block;
+    vertical-align: middle;
+    height: 120px;
+    width: 380px;
+    float: right;
+}
+.search {
+    padding-top: 30px;
+}
+.search input {
+    height: 30px;
+    width: 250px;
+    border-color: skyblue;
+    border-width: 1px;
+}
+.search button {
+    height: 33px;
+    width: 75px;
+    font-weight: 700;
+    background-color: skyblue;
+    border: none;
+}
+
+.nagative-bar {
+    margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 50px;
+    width: 1100px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #87ceeb;
+}
+.nagative-bar ul {
+    margin: 0px;
+    padding: 0px;
+}
+.nagative-bar ul li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 50px;
+    width: 100px;
+}
+.nagative-bar ul li a {
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+    display: inline-block;
+    text-decoration:none;
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
+.nagative-bar ul li a:hover {
+    background-color: #3aa7d2;
+}
+.nagative-bar .active {
+    background-color: #3aa7d2;
+}
+
+
+.news {
+    height: 630px;
+    width: 1100px;
+    margin-top: 30px;
+}
+.news-table {
+    margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+    width: 100%;
+    height: 100%;
+}
+.news-table .row {
+    margin-top: 10px;
+}
+.news-table .row .col {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.news-table .col1 {
+    width: 290px;
+    height: 300px;
+    margin-top: 3px;
+}
+.col1 .carousel {
+    margin: auto;
+    width: 225px;
+}
+.roll-title {
+    top: -30px;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    width: 225px;
+    color: white;
+    background-color: #555;
+    opacity:0.7;
+    text-align: center;
+    align-content: center;
+    font-weight: 700;
+}
+.col-content .col-title-shop .col-title {
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    font-weight: 700;
+    font-size: medium;
+}
+.col-content .col-title-shop .col-title .hotspot {
+    position: relative;
+    top: -8px;
+    height: 8px;
+    width: 20px;
+    display: inline;
+    font-size: 6px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    margin-left: 3px;
+    border-radius: 2px;
+}
+.col-content .shops {
+    width: 290px;
+}
+.col-content .shops .shop-item {
+    height: 120px;
+    width: 125px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+.col-content .shops .shop-item ul {
+    margin: 0px;
+}
+.col-content .shops .shop-item img {
+    height: 100px;
+    width: 125px;
+}
+.col-content .shops .shop-item li.pic {
+    height: 100px;
+    text-align: center;
+}
+.col-content .shops .shop-item li.name {
+    height: 20px;
+    width: 120px;
+    text-align: center;
+}
+
+.news-table .col2 {
+    width: 400px;
+    height: 300px;
+    margin-top: 3px;
+}
+
+.news-table .col3 {
+    width: 400px;
+    height: 300px;
+    margin-top: 3px;
+}
+
+.col2,.col3 .col-content {
+    width: 380px;
+    padding-left: 20px;
+}
+
+.col-title-inline {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    width: 100%;
+    border-bottom-style: dotted;
+    border-bottom-color: #777;
+    border-bottom-width: 1px;
+}
+.col-title-inline .col-title {
+    height: 30px;
+    width: 100px;
+    font-weight: 700;
+    font-size: medium;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    border-bottom-style: solid;
+    border-bottom-color: skyblue;
+    border-bottom-width: medium;
+}
+.col-title-inline .col-more {
+    height: 30px;
+    width: 60px;
+    font-weight: 500;
+    font-size: smaller;
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+}
+
+.col-body-info {
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.col-body-info .info-img {
+    width: 120px;
+    height: 80px;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+.col-body-info .info-img img {
+    width: 120px;
+    height: 80px;
+}
+.col-body-info .info-content {
+    height: 80px;
+    width: 250px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.col-body-info .info-content ul {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.col-body-info .info-content ul li {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow:ellipsis;
+}
+.col-body-info .info-content ul .info-content-title {
+    font-weight: 700;
+    font-size: medium;
+    opacity: 0.8;
+
+}
+.col-body-info .info-content ul .info-content-summary {
+    font-size: small;
+    color: #555;
+    opacity: 0.8;
+}
+.col-body-info .info-content ul .info-content-view {
+    font-size: smaller;
+    color: skyblue;
+}
+
+.col-body-list ul {
+    margin-top: 10px;
+}
+.col-body-list ul li {
+    height: 33px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow:ellipsis;
+}
+.col-body-list ul li .location {
+    color: skyblue;
+}
+.col-body-list ul li .title {
+    margin-left: 10px;
+    color: #555;
+    opacity: 0.8;
+}
+.col-body-list ul li .viewed {
+    margin-left: 10px;
+    color: #c1c1c1;
+    opacity: 0.5;
+}
+
+.col11 {
+    width: 450px;
+    height: 300px;
+}
+.col11 .col-content {
+    width: 450px;
+}
+.col11 .col-title {
+    background-color: skyblue;
+    vertical-align: middle;
+    line-height: 30px;
+    padding-left: 3px;
+}
+.col11 .col-body-info .info-img {
+    width: 120px;
+    height: 80px;
+}
+.col11 .col-body-info .info-content {
+    width: 310px;
+    height: 80px;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+.col11 .col-body-list .news-title {
+    line-height: 30px;
+    height: 30px;
+    width: 80%;
+    float: left;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+}
+.col11 .col-body-list .news-date {
+    line-height: 30px;
+    height: 30px;
+    width: 15%;
+    float: right;
+    font-size: smaller;
+    text-align: center;
+    color: #c1c1c1;
+}
+
+.col12 {
+    width: 650px;
+    height: 300px;
+}
+.col12 .col-content video {
+    padding: 2px 5px 2px 5px;
+    width: 640px;
+    height: 296px;
+    object-fit: cover;
+}
+.col12 .col-body {
+    height: 270px;
+    width: 100%;
+    margin-top: 10px;
+}
+.col12 .col-body .body-img {
+    display: inline-block;
+    vertical-align: middle;
+}
+.col12 .col-body .body-img img {
+    height: 250px;
+    width: 250px;
+}
+.col12 .col-body .body-list {
+    width: 390px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.col12 .col-body .body-list ul {
+    margin: 0;
+}
+.col12 .col-body .body-list ul li {
+    line-height: 30px;
+    height: 30px;
+    width: 350px;
+    vertical-align: middle;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow:ellipsis;
+}
+.col12 .col-body .body-list ul li .news-title {
+    line-height: 30px;
+    height: 30px;
+    width: 80%;
+    float: left;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+
+}
+.col12 .col-body .body-list ul li .news-date {
+    line-height: 30px;
+    height: 30px;
+    width: 15%;
+    float: right;
+    font-size: smaller;
+    text-align: right;
+    color: #c1c1c1;
+}
+
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+}
+footer div {
+    width: 400px;
+    margin: 0 auto;
+}
+footer div p {
+    text-align: center;
+    font-size: smaller;
+    color: #777;
+}
+
+

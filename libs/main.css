@@ -160,20 +160,32 @@ li a:hover {
 }
 
 .news-table .col1 {
-    width: 290px;
+    width: 280px;
     height: 300px;
     margin-top: 3px;
 }
 .col1 .carousel {
     margin: auto;
-    width: 225px;
+    width: 280px;
+    height: 300px;
 }
-.roll-title {
-    top: -30px;
+.carousel .carousel-inner {
+    margin: auto;
+}
+.carousel .carousel-inner img {
+    height: 290px;
+    width: 280px;
+}
+.carousel .carousel-inner ul {
+    margin: 0;
+    padding: 0;
+}
+.carousel .carousel-inner .roll-title {
+    top: -34px;
     position: relative;
     height: 30px;
     line-height: 30px;
-    width: 225px;
+    width: 280px;
     color: white;
     background-color: #555;
     opacity:0.7;

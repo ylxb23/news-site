@@ -7,6 +7,7 @@ body {
 }
 ul {
     margin: 0;
+    padding: 0;
 }
 img {
     object-fit: cover;
@@ -160,32 +161,41 @@ li a:hover {
 }
 
 .news-table .col1 {
-    width: 280px;
+    width: 270px;
     height: 300px;
     margin-top: 3px;
 }
 .col1 .carousel {
-    margin: auto;
-    width: 280px;
+    margin: 1rem auto;
+    width: 270px;
     height: 300px;
+    overflow: hidden;
+    position: relative;
 }
 .carousel .carousel-inner {
-    margin: auto;
+    width: 270px;
+    height: 300px;
+    overflow: visible;
+    position: absolute;
+    /** 开启动画 */
+    display: flex;
+    animation: my_carousel 11s ease infinite;
+}
+
+.carousel .carousel-inner .item {
+    height: 100%;
+    width: 100%;
 }
 .carousel .carousel-inner img {
     height: 290px;
-    width: 280px;
-}
-.carousel .carousel-inner ul {
-    margin: 0;
-    padding: 0;
+    width: 100%;
 }
 .carousel .carousel-inner .roll-title {
     top: -34px;
     position: relative;
     height: 30px;
     line-height: 30px;
-    width: 280px;
+    width: 270px;
     color: white;
     background-color: #555;
     opacity:0.7;
@@ -193,6 +203,27 @@ li a:hover {
     align-content: center;
     font-weight: 700;
 }
+@keyframes my_carousel {
+    0%,10% {
+        transform: translateX(0);
+    }
+    20%,30% {
+        transform: translateX(-270px);
+    }
+    40%,50% {
+        transform: translateX(-540px);
+    }
+    60%,70% {
+        transform: translateX(-810px);
+    }
+    80%,90% {
+        transform: translateX(-1080px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .col-content .col-title-shop .col-title {
     height: 30px;
     line-height: 30px;
@@ -214,21 +245,20 @@ li a:hover {
     border-radius: 2px;
 }
 .col-content .shops {
-    width: 290px;
+    width: 270px;
 }
 .col-content .shops .shop-item {
     height: 120px;
-    width: 125px;
+    width: 130px;
     display: inline-block;
     vertical-align: middle;
     margin-top: 5px;
+    margin-left: 2px;
 }
-.col-content .shops .shop-item ul {
-    margin: 0px;
-}
+
 .col-content .shops .shop-item img {
     height: 100px;
-    width: 125px;
+    width: 100%;
 }
 .col-content .shops .shop-item li.pic {
     height: 100px;
@@ -236,7 +266,7 @@ li a:hover {
 }
 .col-content .shops .shop-item li.name {
     height: 20px;
-    width: 120px;
+    width: 100%;
     text-align: center;
 }
 
@@ -280,7 +310,7 @@ li a:hover {
 }
 .col-title-inline .col-more {
     height: 30px;
-    width: 60px;
+    width: 70px;
     font-weight: 500;
     font-size: smaller;
     display: inline-block;
@@ -407,11 +437,10 @@ li a:hover {
 }
 
 .col12 {
-    width: 650px;
+    width: 640px;
     height: 300px;
 }
 .col12 .col-content video {
-    padding: 2px 5px 2px 5px;
     width: 640px;
     height: 296px;
     object-fit: cover;

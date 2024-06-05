@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- jquery -->
-    <script src="libs/bootstrap/jquery.min.js"></script>
+    <script src="libs/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="libs/main.css" />
-    <script src="libs/main.js" type="javascript" ></script>
+    <script src="libs/main.js" ></script>
+    <script src="libs/index.js" ></script>
 
 </head>  
 <body>  
@@ -17,7 +18,8 @@
         <div class="header">
             <div class="head-inline">
                 <div class="head-icon">
-                    <img src="imgs/head-icon.png" alt="" onclick="javascript:;" />
+                    <!-- 将从 main.js中加载logo图片 -->
+                    <img id="logo" src="" alt="" onclick="javascript:;" />
                 </div>
                 <div class="split"></div>
                 <div class="head-title">
@@ -38,11 +40,8 @@
         </div>  
       
         <div class="nagative-bar">  
-            <ul>  
-                <li class="active"><a href="javascript:;">首页</a></li>  
-                <li><a href="javascript:;">新闻</a></li>  
-                <li><a href="forum.html">论坛</a></li>  
-                <li><a href="javascript:;">关于我们</a></li>  
+            <ul id="nagatives" >  
+                <!-- 这里的内容将通过js加载 -->
             </ul>  
         </div>  
         
@@ -53,108 +52,19 @@
                     <div class="col col1">
                         <!--轮播图 -->
                         <div id="myCarousel" class="carousel">
-                            <div class="carousel-inner">
-                                <div class="active item">
-                                    <img src="imgs/img01.png" alt="">
-                                    <ul>
-                                        <li class="roll-title">这是新闻标题一</li>
-                                    </ul>
-                                </div>
-                                <div class="item">
-                                    <img src="imgs/img02.png" alt="">
-                                    <ul>
-                                        <li class="roll-title">这是新闻标题二</li>
-                                    </ul>
-                                </div>
-                                <div class="item">
-                                    <img src="imgs/img03.png" alt="">
-                                    <ul>
-                                        <li class="roll-title">这是新闻标题三</li>
-                                    </ul>
-                                </div>
-                                <div class="item">
-                                    <img src="imgs/img04.png" alt="">
-                                    <ul>
-                                        <li class="roll-title">这是新闻标题四</li>
-                                    </ul>
-                                </div>
-                                <div class="item">
-                                    <img src="imgs/img02.png" alt="">
-                                    <ul>
-                                        <li class="roll-title">这是新闻标题五</li>
-                                    </ul>
-                                </div>
+                            <div id="carousel-banner" class="carousel-inner">
+                                <!-- 这里将从 index.js 中加载 -->
                             </div>
                         </div>
                     </div>
                     <div class="col col2">
-                        <div class="col-content">
-                            <div class="col-title-inline">
-                                <div class="col-title">企鹅新闻</div>
-                                <div class="col-more">
-                                    <li><a href="javascript:;" >更多 &gt;&gt;&gt; </a></li>
-                                </div>
-                            </div>
-                            <div class="col-body-info">
-                                <div class="info-img">
-                                    <ul>
-                                        <a href="javascript:;" >
-                                            <img src="imgs/img01x.png" alt="" />
-                                        </a>
-                                    </ul>
-                                </div>
-                                <div class="info-content">
-                                    <ul>
-                                        <li class="info-content-title"><a href="javascript:;">池塘边的榕树上</a></li>
-                                        <li class="info-content-summary">操场边的秋千上，只有蝴蝶停在上面。黑板上老师的粉笔还在拼命叽叽喳喳写个不停</li>
-                                        <li class="info-content-view">已被查看200次</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-body-list">
-                                <ul>
-                                    <li class=""><a href="javascript:;"><span class="location">[湖北 宜昌]</span><span class="title">周杰伦大战诸葛亮</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">孙悟空大战钢铁侠，钢铁侠惨败</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">灭霸在会场中专发现超级智慧种子，计划下周五晚上偷偷溜进去拿走</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 南昌]</span><span class="title">普京说北京烤鸭太好吃了，这次要多带点回去</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[广东 深圳]</span><span class="title">人民日报新媒体联合12家知名博物馆，开启“#寻找博物馆里的龙文物#”系列直播，跟随珍贵文物领略龙文化的魅力</span><span class="viewed">被围观100亿次</span></a></li>
-                                </ul>
-                            </div>
+                        <div id="news-id1" class="col-content">
+                            <!-- 由 index.js 填充 -->
                         </div>
                     </div>
                     <div class="col col3">
-                        <div class="col-content">
-                            <div class="col-title-inline">
-                                <div class="col-title">乌龟新闻</div>
-                                <div class="col-more">
-                                    <li><a href="javascript:;" >更多 &gt;&gt;&gt; </a></li>
-                                </div>
-                            </div>
-                            <div class="col-body-info">
-                                <div class="info-img">
-                                    <ul>
-                                        <a href="javascript:;" >
-                                            <img src="imgs/img02x.png" alt="" />
-                                        </a>
-                                    </ul>
-                                </div>
-                                <div class="info-content">
-                                    <ul>
-                                        <li class="info-content-title"><a href="javascript:;">池塘边的榕树上</a></li>
-                                        <li class="info-content-summary">操场边的秋千上，只有蝴蝶停在上面。黑板上老师的粉笔还在拼命叽叽喳喳写个不停</li>
-                                        <li class="info-content-view">已被查看200次</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-body-list">
-                                <ul>
-                                    <li class=""><a href="javascript:;"><span class="location">[湖北 宜昌]</span><span class="title">周杰伦大战诸葛亮</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">孙悟空大战钢铁侠，钢铁侠惨败</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">灭霸在会场中专发现超级智慧种子，计划下周五晚上偷偷溜进去拿走</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 南昌]</span><span class="title">普京说北京烤鸭太好吃了，这次要多带点回去</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[广东 深圳]</span><span class="title">人民日报新媒体联合12家知名博物馆，开启“#寻找博物馆里的龙文物#”系列直播，跟随珍贵文物领略龙文化的魅力</span><span class="viewed">被围观100亿次</span></a></li>
-                                </ul>
-                            </div>
+                        <div id="news-id2" class="col-content">
+                            <!-- 由 index.js 填充 -->
                         </div>
                     </div>
                 </div>
@@ -165,118 +75,19 @@
                             <div class="col-title-shop">
                                 <div class="col-title">热销商品<span class="hotspot">&nbsp;&nbsp;hots&nbsp;&nbsp;</span></div>
                             </div>
-                            <div class="shops">
-                                <div class="shop-item">
-                                    <ul>
-                                        <li class="pic">
-                                            <a href="javascript:;">
-                                                <img src="imgs/img01x.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li class="name">健康零食</li>
-                                    </ul>
-                                </div>
-                                <div class="shop-item">
-                                    <ul>
-                                        <li class="pic">
-                                            <a href="javascript:;">
-                                                <img src="imgs/img02x.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li class="name">优质饮料</li>
-                                    </ul>
-                                </div>
-                                <div class="shop-item">
-                                    <ul>
-                                        <li class="pic">
-                                            <a href="javascript:;">
-                                                <img src="imgs/img03x.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li class="name">新鲜水果</li>
-                                    </ul>
-                                </div>
-                                <div class="shop-item">
-                                    <ul>
-                                        <li class="pic">
-                                            <a href="javascript:;">
-                                                <img src="imgs/img04x.png" alt="" />
-                                            </a>
-                                        </li>
-                                        <li class="name">有机粮油</li>
-                                    </ul>
-                                </div>
+                            <div id="recommend-shops" class="shops">
+                                <!-- 从 index.js中加载 -->
                             </div>
                         </div>
                     </div>
                     <div class="col col2">
-                        <div class="col-content">
-                            <div class="col-title-inline">
-                                <div class="col-title">新浪新闻</div>
-                                <div class="col-more">
-                                    <li><a href="javascript:;" >更多 &gt;&gt;&gt; </a></li>
-                                </div>
-                            </div>
-                            <div class="col-body-info">
-                                <div class="info-img">
-                                    <ul>
-                                        <a href="javascript:;" >
-                                            <img src="imgs/img03x.png" alt="" />
-                                        </a>
-                                    </ul>
-                                </div>
-                                <div class="info-content">
-                                    <ul>
-                                        <li class="info-content-title"><a href="javascript:;">池塘边的榕树上</a></li>
-                                        <li class="info-content-summary">操场边的秋千上，只有蝴蝶停在上面。黑板上老师的粉笔还在拼命叽叽喳喳写个不停</li>
-                                        <li class="info-content-view">已被查看200次</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-body-list">
-                                <ul>
-                                    <li class=""><a href="javascript:;"><span class="location">[湖北 宜昌]</span><span class="title">周杰伦大战诸葛亮</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">孙悟空大战钢铁侠，钢铁侠惨败</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">灭霸在会场中专发现超级智慧种子，计划下周五晚上偷偷溜进去拿走</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 南昌]</span><span class="title">普京说北京烤鸭太好吃了，这次要多带点回去</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[广东 深圳]</span><span class="title">人民日报新媒体联合12家知名博物馆，开启“#寻找博物馆里的龙文物#”系列直播，跟随珍贵文物领略龙文化的魅力</span><span class="viewed">被围观100亿次</span></a></li>
-                                </ul>
-                            </div>
+                        <div id="news-id3" class="col-content">
+                            <!-- 由 index.js 填充 -->
                         </div>
                     </div>
                     <div class="col col3">
-                        <div class="col-content">
-                            <div class="col-title-inline">
-                                <div class="col-title">独家新闻</div>
-                                <div class="col-more">
-                                    <li><a href="javascript:;" >更多 &gt;&gt;&gt; </a></li>
-                                </div>
-                            </div>
-                            <div class="col-body-info">
-                                <div class="info-img">
-                                    <ul>
-                                        <a href="javascript:;" >
-                                            <img src="imgs/img04x.png" alt="" />
-                                        </a>
-                                    </ul>
-                                </div>
-                                <div class="info-content">
-                                    <ul>
-                                        <li class="info-content-title"><a href="javascript:;">池塘边的榕树上</a></li>
-                                        <li class="info-content-summary">操场边的秋千上，只有蝴蝶停在上面。黑板上老师的粉笔还在拼命叽叽喳喳写个不停</li>
-                                        <li class="info-content-view">已被查看200次</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-body-list">
-                                <ul>
-                                    <li class=""><a href="javascript:;"><span class="location">[湖北 宜昌]</span><span class="title">周杰伦大战诸葛亮</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">孙悟空大战钢铁侠，钢铁侠惨败</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 赣州]</span><span class="title">灭霸在会场中专发现超级智慧种子，计划下周五晚上偷偷溜进去拿走</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[江西 南昌]</span><span class="title">普京说北京烤鸭太好吃了，这次要多带点回去</span><span class="viewed">被围观100亿次</span></a></li>
-                                    <li class=""><a href="javascript:;"><span class="location">[广东 深圳]</span><span class="title">人民日报新媒体联合12家知名博物馆，开启“#寻找博物馆里的龙文物#”系列直播，跟随珍贵文物领略龙文化的魅力</span><span class="viewed">被围观100亿次</span></a></li>
-                                </ul>
-                            </div>
+                        <div id="news-id4" class="col-content">
+                            <!-- 由 index.js 填充 -->
                         </div>
                     </div>
                     

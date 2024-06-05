@@ -181,7 +181,23 @@ li a:hover {
     display: flex;
     animation: my_carousel 11s ease infinite;
 }
-
+@keyframes my_carousel {
+    0%,10% {
+        transform: translateX(0);
+    }
+    20%,40% {
+        transform: translateX(-270px);
+    }
+    50%,60% {
+        transform: translateX(-540px);
+    }
+    70%,90% {
+        transform: translateX(-810px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 .carousel .carousel-inner .item {
     height: 100%;
     width: 100%;
@@ -202,26 +218,6 @@ li a:hover {
     text-align: center;
     align-content: center;
     font-weight: 700;
-}
-@keyframes my_carousel {
-    0%,10% {
-        transform: translateX(0);
-    }
-    20%,30% {
-        transform: translateX(-270px);
-    }
-    40%,50% {
-        transform: translateX(-540px);
-    }
-    60%,70% {
-        transform: translateX(-810px);
-    }
-    80%,90% {
-        transform: translateX(-1080px);
-    }
-    100% {
-        transform: translateX(0);
-    }
 }
 
 .col-content .col-title-shop .col-title {
@@ -298,7 +294,6 @@ li a:hover {
 }
 .col-title-inline .col-title {
     height: 30px;
-    width: 100px;
     font-weight: 700;
     font-size: medium;
     display: inline-block;

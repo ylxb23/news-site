@@ -21,29 +21,6 @@ $(function () {
                 items = data.data;
             } else {
                 alert("banner接口请求失败！将加载默认配置。");
-                // 使用默认值
-                items = [
-                    {
-                        "ID": 1,
-                        "Title": "广东深圳xxx大厦正式动工",
-                        "Image": "http://ncyunhua.com:8088/file/banner/1.jpg"
-                    },
-                    {
-                        "ID": 2,
-                        "Title": "江西南昌xxx地铁正式动工",
-                        "Image": "http://ncyunhua.com:8088/file/banner/2.jpg"
-                    },
-                    {
-                        "ID": 3,
-                        "Title": "北京xx广场xx大厦宣布倒闭",
-                        "Image": "http://ncyunhua.com:8088/file/banner/3.jpg"
-                    },
-                    {
-                        "ID": 4,
-                        "Title": "上海陆家嘴xx电脑商城宣布倒闭",
-                        "Image": "http://ncyunhua.com:8088/file/banner/4.jpg"
-                    }
-                ];
             }
             for (const item of items) {
                 bannerHtml = bannerHtml + 
@@ -55,6 +32,8 @@ $(function () {
                             </div>`;
             }
             $("#carousel-banner").html(bannerHtml);
+            // 重新根据图片路径，通过加入Authorization头加载图片
+            reloadImageSrcWithToken($("#carousel-banner"));
         },
         error: function (xhr, status, error) {
             // alert("轮播图获取失败~, 状态: " + status)
@@ -93,6 +72,8 @@ $(function () {
                                 </div>`
             }
             $("#recommend-shops").html(recommendHtml);
+            // 重新根据图片路径，通过加入Authorization头加载图片
+            reloadImageSrcWithToken($("#recommend-shops"));
         }
     });
 });
@@ -147,6 +128,13 @@ $(function () {
             $("#news-id2").html(newsId2Html);
             $("#news-id3").html(newsId3Html);
             $("#news-id4").html(newsId4Html);
+
+            
+            // 重新根据图片路径，通过加入Authorization头加载图片
+            reloadImageSrcWithToken($("#news-id1"));
+            reloadImageSrcWithToken($("#news-id2"));
+            reloadImageSrcWithToken($("#news-id3"));
+            reloadImageSrcWithToken($("#news-id4"));
         }
     });
 

@@ -1,8 +1,47 @@
 // 公共的js脚本，即所有页面都需要导入的
 
-const TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijg5NGNkYWEzLTAyYWItNGFjYS1iYTYyLWE5OWQ2YTczMzQzMiJ9.YeahmlEqBVYiciHlihoOeveFYoCtnocdIO1jAIMcaEvbM5ydichQbjXy4v_LiJzWTAyDgRQ35gq-DMB-Xx-8Iw";
+const TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI0Nzk1Y2NlLWE0MDQtNGFkMy1iYWJkLTM3OGNlZjlmODE4YyJ9.UlAP364c40H4cGOu6qwKHfoqPSvw2vTtqnbIoc5TpInREfHW9W7CQbKE94KbXlS8pSMFTC2Mtp5jO30HrWKcpQ";
+
 localStorage.setItem("authorization", "Bearer " + TOKEN);
 
+
+function fetchImageWithToken(url, _$img) {
+    // 创建一个新的Headers对象
+    const myHeaders = new Headers();
+    // 将Authorization头添加到Headers对象中
+    myHeaders.append("Authorization", "Bearer " + TOKEN);
+
+    let imageURL = "";
+    // 设置请求选项
+    const requestOptions = {
+        method: "GET", // 请求方法为GET
+        headers: myHeaders, // 设置请求头
+        redirect: "follow" // 设置重定向策略
+    };
+    fetch(url, requestOptions)
+        .then((response) => {
+            return response.blob();
+        }) // 将响应转换为Blob对象
+        .then(blob => {
+            imageURL = URL.createObjectURL(blob);
+            console.log("inner获取到图片URL: " + imageURL);
+            return _$img.attr("src", imageURL);
+        })
+        .catch((error) => {
+            // 捕获错误并在控制台中输出错误信息
+            console.error("There was an error!", error);
+            // 提示用户加载图片失败
+            alert("Failed to load image: " + error.message);
+        });
+} 
+
+function reloadImageSrcWithToken(_$item) {
+    let _images = $(_$item).find("img");
+    for (let i = 0; i < _images.length; i++) {
+        const _$img = $(_images[i]);
+        fetchImageWithToken(_$img.prop("src"), _$img);
+    }
+}
 
 // logo接口地址：http://ncyunhua.com:8088/logo
 // 加载logo
@@ -21,9 +60,10 @@ $(function () {
                 logoUri = data.data.Image;
             } else {
                 alert("Logo接口请求失败！将加载默认图片。");
-                logoUri = "imgs/head-icon.png";
             }
             $("#logo").attr("src", logoUri);
+            // 重新根据图片路径，通过加入Authorization头加载图片
+            reloadImageSrcWithToken($(".head-icon"));
         }
     });
 });
@@ -49,39 +89,6 @@ $(function () {
                 items = data.data;
             } else {
                 alert("导航栏接口请求失败！将加载默认配置。");
-                // 使用默认值
-                items = [
-                    {
-                        "ID": 1,
-                        "Name": "首页",
-                        "Url": "index.html"
-                    },
-                    {
-                        "ID": 2,
-                        "Name": "建筑图集",
-                        "Url": "建筑图集.html"
-                    },
-                    {
-                        "ID": 3,
-                        "Name": "求职招聘",
-                        "Url": "求职招聘.html"
-                    },
-                    {
-                        "ID": 4,
-                        "Name": "环球资讯",
-                        "Url": "环球资讯.html"
-                    },
-                    {
-                        "ID": 5,
-                        "Name": "班组信息",
-                        "Url": "班组信息.html"
-                    },
-                    {
-                        "ID": 6,
-                        "Name": "联盟公司",
-                        "Url": "联盟公司.html"
-                    }
-                ];
             }
             for (const item of items) {
                 var liClazz = "";
@@ -93,11 +100,5 @@ $(function () {
             $("#nagatives").html(nagativesHtml);
         }
     });
-    // $.get("http://ncyunhua.com:8088/title", function (data) {
-        
-    // });
 });
-
-// 加载 banner
-
 

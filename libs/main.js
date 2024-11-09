@@ -1,37 +1,35 @@
 // 公共的js脚本，即所有页面都需要导入的
 
-const TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImI0Nzk1Y2NlLWE0MDQtNGFkMy1iYWJkLTM3OGNlZjlmODE4YyJ9.UlAP364c40H4cGOu6qwKHfoqPSvw2vTtqnbIoc5TpInREfHW9W7CQbKE94KbXlS8pSMFTC2Mtp5jO30HrWKcpQ";
+const TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImE3OTQ2OGIwLWUzMTctNGYwMS1iMmIyLTlhNTVkNWYzMTYyZCJ9.8Vx3tGoB_WvhfO__RVgPGC5su6cWgZMJ43lmw7wzcRKKy-VsEEX1Q8OXZAwZcvlgVAvVMiu4MgxCwO_AeFQ7xg";
 
 localStorage.setItem("authorization", "Bearer " + TOKEN);
 
+// 创建一个新的Headers对象
+const myHeaders = new Headers();
+// 将Authorization头添加到Headers对象中
+myHeaders.append("Authorization", localStorage.getItem("authorization"));
 
+// 设置请求选项
+const requestOptions = {
+    method: "GET", // 请求方法为GET
+    headers: myHeaders, // 设置请求头
+    redirect: "follow" // 设置重定向策略
+};
+
+/**
+ * 获取图片并设置src属性
+ */
 function fetchImageWithToken(url, _$img) {
-    // 创建一个新的Headers对象
-    const myHeaders = new Headers();
-    // 将Authorization头添加到Headers对象中
-    myHeaders.append("Authorization", "Bearer " + TOKEN);
-
-    let imageURL = "";
-    // 设置请求选项
-    const requestOptions = {
-        method: "GET", // 请求方法为GET
-        headers: myHeaders, // 设置请求头
-        redirect: "follow" // 设置重定向策略
-    };
     fetch(url, requestOptions)
         .then((response) => {
             return response.blob();
         }) // 将响应转换为Blob对象
         .then(blob => {
-            imageURL = URL.createObjectURL(blob);
-            console.log("inner获取到图片URL: " + imageURL);
-            return _$img.attr("src", imageURL);
+            return _$img.attr("src", URL.createObjectURL(blob));
         })
         .catch((error) => {
-            // 捕获错误并在控制台中输出错误信息
-            console.error("There was an error!", error);
             // 提示用户加载图片失败
-            alert("Failed to load image: " + error.message);
+            console.error("Failed to load image: " + error.message);
         });
 } 
 
@@ -39,7 +37,7 @@ function reloadImageSrcWithToken(_$item) {
     let _images = $(_$item).find("img");
     for (let i = 0; i < _images.length; i++) {
         const _$img = $(_images[i]);
-        fetchImageWithToken(_$img.prop("src"), _$img);
+        fetchImageWithToken(_$img.prop("alt"), _$img);
     }
 }
 
@@ -61,7 +59,7 @@ $(function () {
             } else {
                 alert("Logo接口请求失败！将加载默认图片。");
             }
-            $("#logo").attr("src", logoUri);
+            $("#logo").attr("alt", logoUri);
             // 重新根据图片路径，通过加入Authorization头加载图片
             reloadImageSrcWithToken($(".head-icon"));
         }
@@ -102,3 +100,28 @@ $(function () {
     });
 });
 
+
+
+
+// POST接口
+ $(function () {
+    var title = $('#title').value;
+    var content = $('#content').value;
+    $.ajax({
+        url: "http://ncyunhua.com:8088/logo", 
+        type: "POST",
+        redirect: "follow",
+        data: { // 需要提交的内容
+            "title": title,
+            "content": content
+        },
+        headers: {
+            "Authorization": localStorage.getItem("authorization"),
+        },
+        success: function (data) {
+            console.log("获取到Logo接口数据: " + JSON.stringify(data));
+            
+            confirm("提交成功！");
+        }
+    });
+});

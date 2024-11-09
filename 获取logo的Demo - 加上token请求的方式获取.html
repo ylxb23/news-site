@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <title>校园网新闻站-首页</title>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <script >
+        function getLogoImg(url) {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer This is bearer Token"); // 注意bearer后面有一个空格，再拼接上获取到的token
+
+            const requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            redirect: "follow"
+            };
+
+            fetch(url, requestOptions)
+            // 转换成图片内容，并赋值给 #logo 的 src属性
+            .then(response => response.blob())      // 转换成blob格式
+            .then(response => URL.createObjectURL(response))    // 创建一个url对象，用于显示图片
+            .then((result) => {
+                document.querySelector("#logo").src = result    // 赋值给 #logo 的 src属性
+            })
+            .catch((error) => console.error(error));
+        }
+
+        function getLogoUrl() {
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // myHeaders.append("Authorization", "Bearer This is bearer Token");
+
+            const requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            redirect: "follow"
+            };
+
+            fetch("http://ncyunhua.com:8088/api/school/logo", requestOptions)
+            .then(response => response.json())  // 转化为json格式，如果是要展示成文本的话，用text()方法
+            .then((result) => {
+                console.log("请求到的数据为: " + JSON.stringify(result))
+                if(result.code == 200 && result.data.length > 0) {
+                    var logoUrl = result.data[0].imgSrc
+                    console.log("获取到的logo地址为: " + logoUrl)
+                    // 这个 document.querySelector("#logo")  是要根据你的 html内容来写的
+                    // document.querySelector("#logo").src = logoUrl
+
+                    getLogoImg(logoUrl)
+                } 
+            })
+            .catch((error) => console.error(error));
+        }
+
+        function submitComment() {
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            const name = document.querySelector("#nameValue").value
+            const gender = document.querySelector("#genderValue").value
+            const phone = document.querySelector("#phoneValue").value
+            const email = document.querySelector("#emailValue").value
+            const comment = document.querySelector("#commentValue").value
+            const data = JSON.stringify({
+                name: name,
+                sex: gender == "女" ? 0 : 1,
+                phone: phone,
+                mail: email,
+                question: comment
+            })
+            // 通过fetch发起请求，并对结果弹窗展示
+            fetch("http://ncyunhua.com:8088/api/school/evaluate", {
+                method: "POST",
+                headers: myHeaders,
+                body: data
+            })
+            .then(response => response.json())  // 转化为json格式，如果是要展示成文本的话，用text()方法
+            .then((result) => {
+                console.log("请求到的数据为: " + JSON.stringify(result))
+                if(result.code == 200) {
+                    alert("提交成功")
+                }
+                else {
+                    alert("提交失败")
+                }
+            })
+        }
+    </script>
+</head>  
+<body> 
+    <div style="margin: auto; width: 800px;">
+        <div>
+            <h1>获取logo的Demo</h1>
+
+            <div style="height: 300px;">   
+                <img id="logo" src="" alt="" style="height: 300px; width: 300px;" />
+            </div>
+
+            <div style="height: 30px; width: 100%;"></div>
+
+            <div>   
+                <button onclick="javascript:getLogoUrl()">点击获取logo</button>
+            </div>
+
+            <div style="height: 30px; width: 100%;"></div>
+            <div>
+                <form action="javascript:submitComment();" >
+                    <input placeholder="你的名字" id="nameValue" />
+                    <select id="genderValue">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                    <input placeholder="你的电话" id="phoneValue" />
+                    <input placeholder="你的邮箱" id="emailValue" />
+                    <input placeholder="评论内容" id="commentValue" />
+                    <button type="submit">提交评论</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

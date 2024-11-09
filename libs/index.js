@@ -25,7 +25,7 @@ $(function () {
             for (const item of items) {
                 bannerHtml = bannerHtml + 
                             `<div class="item">
-                                <img src="${item.Image}" alt="">
+                                <img alt="${item.Image}" >
                                 <ul>
                                     <li class="roll-title">${item.Title}</li>
                                 </ul>
@@ -64,7 +64,7 @@ $(function () {
                                     <ul>
                                         <li class="pic">
                                             <a href="javascript:;">
-                                                <img src="${item.image}" alt="" />
+                                                <img alt="${item.image}" />
                                             </a>
                                         </li>
                                         <li class="name">${item.name}</li>
@@ -153,7 +153,7 @@ $(function () {
                             <div class="info-img">
                                 <ul>
                                     <a href="javascript:;" >
-                                        <img src="${item.Image}" alt="" />
+                                        <img alt="${item.Image}" />
                                     </a>
                                 </ul>
                             </div>
